@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Scripts/HealthSystem.gd" id="1_fbm3g"]
 
-[node name="HealthSystem" type="Node2D"]
+[node name="HealthSystem" type="Node"]
 script = ExtResource("1_fbm3g")

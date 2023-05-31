@@ -3409,5 +3409,4 @@ z_index = 10
 position = Vector2(290, 80)
 
 [node name="Bed" parent="." instance=ExtResource("10_7walp")]
-z_index = 10
 position = Vector2(119, 137)

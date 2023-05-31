@@ -31,8 +31,6 @@ shape = SubResource("RectangleShape2D_8l1t1")
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_p40uh")
 
-[node name="HealthSystem" parent="." instance=ExtResource("4_n0fma")]
-
 [node name="ProgressBar" type="ProgressBar" parent="."]
 modulate = Color(0.918179, 0.0668034, 0.0404697, 1)
 offset_left = -7.0
@@ -42,6 +40,10 @@ offset_bottom = 18.0
 scale = Vector2(0.1, 0.1)
 show_percentage = false
 
+[node name="HealthSystem" parent="." node_paths=PackedStringArray("healthBar") instance=ExtResource("4_n0fma")]
+healthBar = NodePath("../ProgressBar")
+
 [connection signal="hurt" from="Hutbox" to="." method="_on_hutbox_hurt"]
+[connection signal="healthChanged" from="HealthSystem" to="." method="_onHealthChanged"]
 
 [editable path="Hutbox"]
