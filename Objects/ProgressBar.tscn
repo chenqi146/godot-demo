@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cgnhygky1ukjd"]
+
+[node name="ProgressBar" type="ProgressBar"]
+modulate = Color(0.863432, 0.0553776, 0.0319145, 1)
+offset_right = 140.0
+offset_bottom = 27.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false

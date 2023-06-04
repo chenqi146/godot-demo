@@ -3,7 +3,6 @@ extends Sprite2D
 # 导入 HealthSystem 类型
 const HealthSystem = preload("res://Scripts/HealthSystem.gd")
 
-@onready var collisionShape : CollisionShape2D = $Hutbox/CollisionShape2D
 @onready var healthSystem  = $HealthSystem
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -3368,8 +3368,11 @@ sources/5 = SubResource("TileSetAtlasSource_inflw")
 [node name="Demo" type="Node2D"]
 y_sort_enabled = true
 
+[node name="Chest" parent="." instance=ExtResource("9_61in5")]
+position = Vector2(158, 193)
+
 [node name="Player" parent="." instance=ExtResource("1")]
-position = Vector2(163, 143)
+position = Vector2(161, 188)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -3390,7 +3393,7 @@ layer_1/z_index = -10
 layer_1/tile_data = PackedInt32Array(327690, 65537, 1, 327691, 65537, 1, 327692, 65537, 1, 327693, 65537, 1, 327694, 65537, 1, 327695, 65537, 1, 327696, 65537, 1, 327697, 65537, 1, 327698, 65537, 1, 262153, 2, 0, 327689, 2, 1, 393225, 2, 2, 262154, 65538, 0, 262155, 65538, 0, 262156, 65538, 0, 262157, 65538, 0, 262158, 65538, 0, 262159, 65538, 0, 262160, 65538, 0, 262161, 65538, 0, 262162, 65538, 0, 262163, 131074, 0, 327699, 131074, 1, 393235, 131074, 2, 393226, 65538, 2, 393227, 65538, 2, 393228, 196610, 4, 393229, 262146, 4, 393230, 65538, 2, 393231, 65538, 2, 393232, 65538, 2, 393233, 65538, 2, 393234, 65538, 2, 458764, 196610, 5, 458765, 262146, 5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(163, 143)
+position = Vector2(161, 188)
 
 [node name="Cow" parent="." instance=ExtResource("8_3a0gb")]
 position = Vector2(83, 89)
@@ -3401,12 +3404,8 @@ position = Vector2(174, 79)
 [node name="Cow3" parent="." instance=ExtResource("8_3a0gb")]
 position = Vector2(269, 138)
 
-[node name="Chest" parent="." instance=ExtResource("9_61in5")]
-z_index = 10
-
 [node name="Chest2" parent="." instance=ExtResource("9_61in5")]
-z_index = 10
 position = Vector2(290, 80)
 
 [node name="Bed" parent="." instance=ExtResource("10_7walp")]
-position = Vector2(119, 137)
+position = Vector2(79, 153)

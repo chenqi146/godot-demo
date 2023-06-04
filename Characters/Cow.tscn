@@ -1,7 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7iay8j0gpx1"]
+[gd_scene load_steps=19 format=3 uid="uid://c7iay8j0gpx1"]
 
 [ext_resource type="Script" path="res://Characters/Cow.gd" id="1_p8uyk"]
 [ext_resource type="Texture2D" uid="uid://opv4lqbouc8q" path="res://Asset/Characters/Free Cow Sprites.png" id="1_wlmnc"]
+[ext_resource type="PackedScene" uid="uid://cgnhygky1ukjd" path="res://Objects/ProgressBar.tscn" id="3_s0u6b"]
+[ext_resource type="PackedScene" uid="uid://c6xk6e6kxu438" path="res://Scripts/HealthSystem.tscn" id="4_ekknf"]
+[ext_resource type="PackedScene" uid="uid://daagnusnhoagq" path="res://Boxes/Hurtbox.tscn" id="5_54y6h"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l1sdl"]
 animation = &"idle_right"
@@ -84,12 +87,15 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhwa"]
 size = Vector2(16, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0q8a"]
+size = Vector2(16, 6)
+
 [node name="Cow" type="CharacterBody2D"]
-z_index = 10
 y_sort_enabled = true
 script = ExtResource("1_p8uyk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture = ExtResource("1_wlmnc")
 hframes = 3
 vframes = 2
@@ -107,9 +113,27 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 10)
+position = Vector2(-2, 10)
 shape = SubResource("RectangleShape2D_rkhwa")
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="ProgressBar" parent="." instance=ExtResource("3_s0u6b")]
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 200.0
+offset_bottom = 19.0
+
+[node name="HealthSystem" parent="." node_paths=PackedStringArray("healthBar") instance=ExtResource("4_ekknf")]
+healthBar = NodePath("../ProgressBar")
+
+[node name="Hutbox" parent="." instance=ExtResource("5_54y6h")]
+
+[node name="CollisionShape2D" parent="Hutbox" index="0"]
+position = Vector2(-2, 10)
+shape = SubResource("RectangleShape2D_o0q8a")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="hurt" from="Hutbox" to="." method="_on_hutbox_hurt"]
+
+[editable path="Hutbox"]

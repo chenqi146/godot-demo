@@ -11,6 +11,9 @@ enum COW_STATE { IDLE, WALK}
 @onready var sprite = $Sprite2D
 @onready var timer = $Timer
 
+const HealthSystem = preload("res://Scripts/HealthSystem.gd")
+
+@onready var healthSystem  = $HealthSystem
 
 var move_direction : Vector2 = Vector2.ZERO
 var current_state : COW_STATE = COW_STATE.IDLE
@@ -50,3 +53,7 @@ func pick_new_state():
 
 func _on_timer_timeout():
 	pick_new_state()
+
+
+func _on_hutbox_hurt() -> void:
+	healthSystem.minusHealth(15)

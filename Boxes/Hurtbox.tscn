@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Boxes/Hurtbox.gd" id="1_1lrtf"]
 
 [node name="Hutbox" type="Area2D"]
+y_sort_enabled = true
 script = ExtResource("1_1lrtf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

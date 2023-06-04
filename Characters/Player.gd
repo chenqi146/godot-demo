@@ -9,9 +9,10 @@ extends CharacterBody2D
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
+@onready var hand : Node2D = $Hand
 # Called when the node enters the scene tree for the first time.
 
-enum PLAYER_STATE { IDLE, WALK, DIG}
+enum PLAYER_STATE { IDLE, WALK, SWING}
 var current_state : PLAYER_STATE = PLAYER_STATE.IDLE
 func _ready():
 	update_animation_parameters(starting_direction)
@@ -23,6 +24,7 @@ func _physics_process(_delta):
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
 	
+	hand.visible = false
 	if Input.is_action_pressed("down") or \
 		Input.is_action_pressed("left") or \
 		Input.is_action_pressed("right") or \
@@ -32,9 +34,10 @@ func _physics_process(_delta):
 		velocity = input_direction.normalized() * move_speed
 		update_animation_parameters(input_direction)
 		move_and_slide()
-	elif Input.is_action_pressed("dig"):
-		current_state = PLAYER_STATE.DIG
-		state_machine.travel("Dig")
+	elif Input.is_action_pressed("swing"):
+		hand.visible = true
+		current_state = PLAYER_STATE.SWING
+		state_machine.travel("Swing")
 		velocity = Vector2.ZERO
 	else:
 		current_state = PLAYER_STATE.IDLE
@@ -46,7 +49,7 @@ func _physics_process(_delta):
 func update_animation_parameters(move_input : Vector2):
 	animation_tree.set("parameters/Idle/blend_position", move_input)
 	animation_tree.set("parameters/Walk/blend_position", move_input)
-	animation_tree.set("parameters/Dig/blend_position", move_input)
+	animation_tree.set("parameters/Swing/blend_position", move_input)
 	
 
 

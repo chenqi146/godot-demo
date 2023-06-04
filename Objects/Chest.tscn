@@ -3,17 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://c5xn0x0d4w0ef" path="res://Asset/Objects/Chest.png" id="1_mlrjf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvsrs"]
-size = Vector2(16, 7)
+size = Vector2(16, 6)
 
 [node name="Chest" type="Sprite2D"]
-position = Vector2(162, 193)
+y_sort_enabled = true
 texture = ExtResource("1_mlrjf")
 hframes = 5
 vframes = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-z_index = 10
-position = Vector2(0, 4.5)
+y_sort_enabled = true
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_bvsrs")
