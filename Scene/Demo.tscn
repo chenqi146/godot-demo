@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://danhmpdia4t8y"]
 
-[ext_resource type="PackedScene" uid="uid://c6b41x0ajmmkt" path="res://Characters/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://c6b41x0ajmmkt" path="res://Characters/Player/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://dtbytg2dd2pop" path="res://Asset/Tilesets/ground tiles/new tiles/Grass tiles v.2.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://bpgn546osr3pm" path="res://Asset/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="3_yauvw"]
 [ext_resource type="Texture2D" uid="uid://buw17xv87cexl" path="res://Asset/Tilesets/ground tiles/new tiles/Tall Grass hill tiles v.2.png" id="4_wjplu"]
@@ -3408,4 +3408,5 @@ position = Vector2(269, 138)
 position = Vector2(290, 80)
 
 [node name="Bed" parent="." instance=ExtResource("10_7walp")]
+z_index = -2
 position = Vector2(79, 153)

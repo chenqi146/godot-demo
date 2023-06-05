@@ -53,7 +53,7 @@ func _onRegenTimerTimeout():
 	# 每次回血regenRate点
 	plusHealth(regenRate)  
 	
-func _onattrackedTimerTimeout():
+func _onAttrackedTimerTimeout():
 	regenTimer.start()
 		
 	

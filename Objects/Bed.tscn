@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Objects/Bed.gd" id="2_v03w0"]
 [ext_resource type="PackedScene" uid="uid://c6xk6e6kxu438" path="res://Scripts/HealthSystem.tscn" id="4_n0fma"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l1t1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k366"]
 size = Vector2(14, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p40uh"]
@@ -22,7 +22,7 @@ script = ExtResource("2_v03w0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_8l1t1")
+shape = SubResource("RectangleShape2D_3k366")
 
 [node name="Hutbox" parent="." instance=ExtResource("2_ev74i")]
 

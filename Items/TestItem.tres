@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EquippableItem" load_steps=3 format=3 uid="uid://dnmsxbth8cusi"]
+
+[ext_resource type="Script" path="res://Items/EquippableItem.gd" id="1_pb1m4"]
+[ext_resource type="Texture2D" uid="uid://yn0sdcuvwuu8" path="res://Asset/Characters/IronAx.png" id="2_3j4ji"]
+
+[resource]
+script = ExtResource("1_pb1m4")
+texture = ExtResource("2_3j4ji")
+dispalyName = "Test Item"

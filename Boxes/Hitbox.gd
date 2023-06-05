@@ -2,6 +2,7 @@ extends Area2D
 
 signal hit
 
-func _on_area_entered(hurtbox: Area2D):
-	emit_signal("hit", hurtbox)
-	hurtbox.emit_signal("hurt")
+
+func _on_body_entered(body: Node2D) -> void:
+	emit_signal("hit", body)
+	body.emit_signal("hurt")

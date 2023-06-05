@@ -1,5 +1,6 @@
 extends Sprite2D
 
+
 # 导入 HealthSystem 类型
 const HealthSystem = preload("res://Scripts/HealthSystem.gd")
 

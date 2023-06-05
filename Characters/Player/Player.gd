@@ -51,8 +51,3 @@ func update_animation_parameters(move_input : Vector2):
 	animation_tree.set("parameters/Walk/blend_position", move_input)
 	animation_tree.set("parameters/Swing/blend_position", move_input)
 	
-
-
-func _on_hitbox_hit(box: Area2D):
-	var o = box.owner
-	print(box.owner)

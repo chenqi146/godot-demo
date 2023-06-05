@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://r8rdoytxyk5x"]
+
+[ext_resource type="Texture2D" uid="uid://yn0sdcuvwuu8" path="res://Asset/Characters/IronAx.png" id="1_5tayv"]
+[ext_resource type="Script" path="res://Characters/Player/Hand.gd" id="2_8ga82"]
+[ext_resource type="PackedScene" uid="uid://buqrmj5lu6jio" path="res://Boxes/Hitbox.tscn" id="3_wp6wm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1mh5"]
+size = Vector2(6, 4)
+
+[node name="Hand" type="Sprite2D"]
+y_sort_enabled = true
+texture = ExtResource("1_5tayv")
+script = ExtResource("2_8ga82")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_wp6wm")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-5, 6)
+shape = SubResource("RectangleShape2D_h1mh5")
+
+[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
+
+[editable path="Hitbox"]
