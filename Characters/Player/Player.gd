@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+class_name Player
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -9,7 +9,8 @@ extends CharacterBody2D
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
-@onready var hand : Node2D = $Hand
+@onready var hand : Sprite2D = $Hand
+@onready var hitboxCollisionShape2D : CollisionShape2D = $Hand/Hitbox/CollisionShape2D
 # Called when the node enters the scene tree for the first time.
 
 enum PLAYER_STATE { IDLE, WALK, SWING}
@@ -17,33 +18,11 @@ var current_state : PLAYER_STATE = PLAYER_STATE.IDLE
 func _ready():
 	update_animation_parameters(starting_direction)
 
-func _physics_process(_delta):
+func update_state(state: PLAYER_STATE) -> void:
+	current_state = state
 
-	var input_direction = Vector2(
-		Input.get_action_strength("right") - Input.get_action_strength("left"),
-		Input.get_action_strength("down") - Input.get_action_strength("up")
-	)
-	
-	hand.visible = false
-	if Input.is_action_pressed("down") or \
-		Input.is_action_pressed("left") or \
-		Input.is_action_pressed("right") or \
-		Input.is_action_pressed("up"):
-		current_state = PLAYER_STATE.WALK
-		state_machine.travel("Walk")
-		velocity = input_direction.normalized() * move_speed
-		update_animation_parameters(input_direction)
-		move_and_slide()
-	elif Input.is_action_pressed("swing"):
-		hand.visible = true
-		current_state = PLAYER_STATE.SWING
-		state_machine.travel("Swing")
-		velocity = Vector2.ZERO
-	else:
-		current_state = PLAYER_STATE.IDLE
-		state_machine.travel("Idle")
-		velocity = Vector2.ZERO
-	
+func on_swing_finished():
+	current_state = PLAYER_STATE.IDLE
  
 
 func update_animation_parameters(move_input : Vector2):

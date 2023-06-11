@@ -97,8 +97,10 @@ script = ExtResource("1_p8uyk")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
 texture = ExtResource("1_wlmnc")
+offset = Vector2(0, -12)
 hframes = 3
 vframes = 2
+frame = 2
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_cxkqe")
@@ -113,24 +115,25 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 10)
+position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_rkhwa")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="ProgressBar" parent="." instance=ExtResource("3_s0u6b")]
 offset_left = -10.0
-offset_top = -8.0
+offset_top = -20.0
 offset_right = 200.0
-offset_bottom = 19.0
+offset_bottom = 7.0
 
 [node name="HealthSystem" parent="." node_paths=PackedStringArray("healthBar") instance=ExtResource("4_ekknf")]
 healthBar = NodePath("../ProgressBar")
 
 [node name="Hutbox" parent="." instance=ExtResource("5_54y6h")]
+collision_layer = 32
 
 [node name="CollisionShape2D" parent="Hutbox" index="0"]
-position = Vector2(-2, 10)
+position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_o0q8a")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

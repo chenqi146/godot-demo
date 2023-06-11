@@ -19,12 +19,14 @@ region_rect = Rect2(0, 16, 16, 32)
 script = ExtResource("2_v03w0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_3k366")
 
 [node name="Hutbox" parent="." instance=ExtResource("2_ev74i")]
+collision_layer = 32
 
 [node name="CollisionShape2D" parent="Hutbox" index="0"]
 position = Vector2(0, 8)

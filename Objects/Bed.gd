@@ -20,6 +20,6 @@ func _onHealthChanged(health: int):
 
 
 
-func _on_hutbox_hurt():
+func _on_hutbox_hurt(body):
 	healthSystem.minusHealth(20)
 

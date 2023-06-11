@@ -55,5 +55,5 @@ func _on_timer_timeout():
 	pick_new_state()
 
 
-func _on_hutbox_hurt() -> void:
+func _on_hutbox_hurt(body) -> void:
 	healthSystem.minusHealth(15)
