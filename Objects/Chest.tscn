@@ -2,33 +2,31 @@
 
 [ext_resource type="Texture2D" uid="uid://c5xn0x0d4w0ef" path="res://Asset/Objects/Chest.png" id="1_mlrjf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vshqd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvsrs"]
+size = Vector2(14, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6teb"]
 atlas = ExtResource("1_mlrjf")
 region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gp2qw"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_lhgfy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vshqd")
+"texture": SubResource("AtlasTexture_q6teb")
 }],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvsrs"]
-size = Vector2(14, 5)
-
-[node name="Chest" type="AnimatedSprite2D"]
+[node name="Chest" type="StaticBody2D"]
 y_sort_enabled = true
-sprite_frames = SubResource("SpriteFrames_gp2qw")
-animation = &"Idle"
-offset = Vector2(0, -8)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(0, -5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 1.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_bvsrs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lhgfy")
+animation = &"Idle"

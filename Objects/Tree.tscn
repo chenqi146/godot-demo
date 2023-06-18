@@ -1,139 +1,173 @@
-[gd_scene load_steps=25 format=3 uid="uid://b8wwfgl788nin"]
+[gd_scene load_steps=11 format=3 uid="uid://b8wwfgl788nin"]
 
 [ext_resource type="Texture2D" uid="uid://hxj0ix7biqjs" path="res://Asset/Objects/Tree animations/tree sprites.png" id="1_ym2hs"]
-[ext_resource type="Texture2D" uid="uid://drxe1q87lthuy" path="res://Asset/Objects/Trees, stumps and bushes.png" id="2_w08j4"]
+[ext_resource type="Script" path="res://Objects/Tree.gd" id="3_3dw32"]
+[ext_resource type="PackedScene" uid="uid://daagnusnhoagq" path="res://Boxes/Hurtbox.tscn" id="3_80pf7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x2tc0"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(0, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3dfl5"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(48, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ekyfi"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(96, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n6ijc"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(192, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dow63"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(288, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v6ur6"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(432, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_48m1g"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(480, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8g6pf"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(528, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pddks"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(336, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ldkmq"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(384, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o1gmp"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(240, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_irfhb"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(144, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o3tdy"]
-atlas = ExtResource("2_w08j4")
-region = Rect2(0, 80, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hiqt"]
-atlas = ExtResource("2_w08j4")
-region = Rect2(16, 96, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hydjc"]
-atlas = ExtResource("1_ym2hs")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_70v6k"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x2tc0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3dfl5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ekyfi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n6ijc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dow63")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v6ur6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_48m1g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8g6pf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pddks")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ldkmq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o1gmp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_irfhb")
-}],
-"loop": false,
-"name": &"Attacked",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o3tdy")
-}],
-"loop": false,
-"name": &"Death",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6hiqt")
-}],
-"loop": true,
-"name": &"Deathed",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hydjc")
-}],
-"loop": false,
-"name": &"Idle",
-"speed": 1.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6x72"]
+size = Vector2(8, 4)
 
 [sub_resource type="Animation" id="Animation_gtj53"]
 resource_name = "Attacked"
-length = 1.2
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ym2hs")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:region_enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fqrga"]
+resource_name = "Death"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, -12), Vector2(-12, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(16, 0, 32, 32), Rect2(0, 80, 32, 16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:region_enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_olwi0"]
+resource_name = "Deathed"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:region_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(16, 96, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_o3vq1"]
+resource_name = "Idle"
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -142,166 +176,70 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 11]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:animation")
+tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Attacked"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Vector2(0, -16)]
 }
-
-[sub_resource type="Animation" id="Animation_fqrga"]
-resource_name = "Death"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Death"]
-}
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:offset")
+tracks/2/path = NodePath(".:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12, -4)]
-}
-
-[sub_resource type="Animation" id="Animation_olwi0"]
-resource_name = "Deathed"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Deathed"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"values": [ExtResource("1_ym2hs")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:offset")
+tracks/3/path = NodePath(".:hframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -4)]
+"update": 1,
+"values": [12]
 }
-
-[sub_resource type="Animation" id="Animation_o3vq1"]
-resource_name = "Idle"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:vframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:region_enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Idle"]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_027og"]
@@ -312,15 +250,24 @@ _data = {
 "Idle": SubResource("Animation_o3vq1")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iv2jl"]
-size = Vector2(8, 4.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcmhh"]
+size = Vector2(8, 4)
 
-[node name="Tree" type="AnimatedSprite2D"]
+[node name="Tree" type="Sprite2D"]
 y_sort_enabled = true
-sprite_frames = SubResource("SpriteFrames_70v6k")
-animation = &"Idle"
-autoplay = "Idle"
+texture = ExtResource("1_ym2hs")
 offset = Vector2(0, -16)
+hframes = 12
+vframes = 5
+frame = 36
+region_rect = Rect2(16, 96, 16, 16)
+script = ExtResource("3_3dw32")
+
+[node name="Hutbox" parent="." instance=ExtResource("3_80pf7")]
+collision_layer = 32
+
+[node name="CollisionShape2D" parent="Hutbox" index="0"]
+shape = SubResource("RectangleShape2D_x6x72")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
@@ -331,4 +278,9 @@ libraries = {
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_iv2jl")
+shape = SubResource("RectangleShape2D_fcmhh")
+
+[connection signal="hurt" from="Hutbox" to="." method="_on_hutbox_hurt"]
+[connection signal="hurt_exit" from="Hutbox" to="." method="_on_hutbox_hurt_exit"]
+
+[editable path="Hutbox"]
