@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResourceItem" load_steps=4 format=3 uid="uid://lrhx320qqlap"]
+
+[ext_resource type="Script" path="res://Items/Resources/ResourceItem.gd" id="1_18m8b"]
+[ext_resource type="Texture2D" uid="uid://cg8fx13ogyhec" path="res://Asset/Objects/Mushrooms, Flowers, Stones.png" id="2_gasd0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6mt1"]
+atlas = ExtResource("2_gasd0")
+region = Rect2(16, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_18m8b")
+display_name = "Rock"
+texture = SubResource("AtlasTexture_d6mt1")

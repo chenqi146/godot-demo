@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://c6b41x0ajmmkt"]
+[gd_scene load_steps=56 format=3 uid="uid://c6b41x0ajmmkt"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://cr1231mvmygt3" path="res://Asset/Characters/Basic Charakter Spritesheet.png" id="2_ekrqb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Characters/Player/Idle.gd" id="6_ooha5"]
 [ext_resource type="Script" path="res://Characters/Player/Swing.gd" id="8_0ypb2"]
 [ext_resource type="Script" path="res://Characters/Player/Walk.gd" id="9_7b4kl"]
+[ext_resource type="Script" path="res://Characters/Player/Inventory.gd" id="10_ygvsv"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8, 7)
@@ -1927,6 +1928,9 @@ script = ExtResource("8_0ypb2")
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("9_7b4kl")
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("10_ygvsv")
 
 [connection signal="hit" from="Hand/Hitbox" to="Hand" method="_on_hitbox_hit"]
 
