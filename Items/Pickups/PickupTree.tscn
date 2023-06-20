@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://beglmjitdrahg"]
+
+[ext_resource type="Script" path="res://Items/Pickups/Pickup.gd" id="1_wpnij"]
+[ext_resource type="Texture2D" uid="uid://bja1lj07qy0cq" path="res://Asset/Objects/Basic tools and meterials.png" id="2_f3xwf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pd2tj"]
+radius = 3.0
+height = 12.0
+
+[node name="PickupTree" type="Area2D"]
+z_index = -1
+collision_layer = 32
+collision_mask = 3
+script = ExtResource("1_wpnij")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_f3xwf")
+offset = Vector2(0, -6)
+hframes = 3
+vframes = 2
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -5)
+rotation = -0.808294
+shape = SubResource("CapsuleShape2D_pd2tj")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://cr1231mvmygt3" path="res://Asset/Characters/Basic Charakter Spritesheet.png" id="2_ekrqb"]
 [ext_resource type="Texture2D" uid="uid://2avcetpb4tgv" path="res://Asset/Characters/Basic Charakter Actions.png" id="3_nrbjv"]
-[ext_resource type="Resource" uid="uid://dcntgfiicnv3b" path="res://Items/IronAx.tres" id="5_2ntx6"]
+[ext_resource type="Resource" uid="uid://dcntgfiicnv3b" path="res://Items/Tools/IronAx.tres" id="5_1xn82"]
 [ext_resource type="PackedScene" uid="uid://r8rdoytxyk5x" path="res://Characters/Player/Hand.tscn" id="5_shogc"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="6_mhg7u"]
 [ext_resource type="Script" path="res://Characters/Player/Idle.gd" id="6_ooha5"]
@@ -1858,6 +1858,7 @@ bg_color = Color(0, 0.647059, 0.129412, 1)
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 2
+collision_mask = 37
 script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -1906,7 +1907,7 @@ y_sort_enabled = false
 position = Vector2(8, 1)
 rotation = 1.5708
 offset = Vector2(-8, 0)
-equipped_item = ExtResource("5_2ntx6")
+equipped_item = ExtResource("5_1xn82")
 
 [node name="Hitbox" parent="Hand" index="0"]
 collision_mask = 48

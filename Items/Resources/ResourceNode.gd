@@ -26,6 +26,7 @@ func harvest(amount: int):
 func spawn_resource():
 	var pickup_instance : Pickup = pickup_type.instantiate() as Pickup
 	# 设置位置, 资源节点周围
+	#get_parent().call_deferred("add_child", pickup_instance)
 	get_parent().add_child(pickup_instance)
 	pickup_instance.position = position
 	var direction : Vector2 = Vector2(

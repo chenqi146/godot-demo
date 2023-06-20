@@ -11,7 +11,7 @@ var time_since_launch : float = 0
 var launching : bool = false :
 	set(is_launching):
 		launching = is_launching
-		collision_shape.disabled = launching
+		collision_shape.set_deferred("disabled", launching)
 
 func _ready() -> void:
 	connect("body_entered", _on_body_entered)
