@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8wwfgl788nin"]
+[gd_scene load_steps=14 format=3 uid="uid://b8wwfgl788nin"]
 
 [ext_resource type="Texture2D" uid="uid://hxj0ix7biqjs" path="res://Asset/Objects/Tree animations/tree sprites.png" id="1_ym2hs"]
 [ext_resource type="Resource" uid="uid://i11dgqii667j" path="res://Items/Resources/Type/Minable.tres" id="2_srt3n"]
@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://daagnusnhoagq" path="res://Boxes/Hurtbox.tscn" id="3_80pf7"]
 [ext_resource type="PackedScene" uid="uid://beglmjitdrahg" path="res://Items/Pickups/PickupTree.tscn" id="3_gjhma"]
 [ext_resource type="Texture2D" uid="uid://4s45mpj8rgut" path="res://Asset/Objects/Basic Grass Biom things 1.png" id="4_ud08a"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcmhh"]
-size = Vector2(8, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6x72"]
 size = Vector2(8, 4)
@@ -92,7 +89,8 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_fqrga"]
 resource_name = "Death"
-length = 0.45
+length = 0.6
+step = 0.02
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,10 +98,10 @@ tracks/0/path = NodePath("TreeSprite:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.52, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(0, -12), Vector2(-16, -6)]
+"values": [Vector2(0, -12), Vector2(-16, -6), Vector2(-16, -6), Vector2(0, -4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -112,10 +110,10 @@ tracks/1/path = NodePath("TreeSprite:region_enabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.52, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [true, true]
+"values": [true, true, true, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -124,10 +122,10 @@ tracks/2/path = NodePath("TreeSprite:region_rect")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.52, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Rect2(16, 0, 32, 32), Rect2(0, 64, 32, 16)]
+"values": [Rect2(16, 0, 32, 32), Rect2(0, 64, 32, 16), Rect2(0, 64, 32, 16), Rect2(64, 32, 16, 16)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -136,10 +134,10 @@ tracks/3/path = NodePath("TreeSprite:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.52, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_ud08a"), ExtResource("4_ud08a")]
+"values": [ExtResource("4_ud08a"), ExtResource("4_ud08a"), ExtResource("4_ud08a"), ExtResource("4_ud08a")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -148,10 +146,10 @@ tracks/4/path = NodePath("TreeSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.52, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 0]
+"values": [0, 0, 0, 0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -176,95 +174,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_olwi0"]
-resource_name = "Deathed"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TreeSprite:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0, -4)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TreeSprite:region_enabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TreeSprite:region_rect")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Rect2(64, 32, 16, 16)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TreeSprite:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_ud08a")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("TreeSprite:hframes")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("TreeSprite:vframes")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("TreeSprite:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_o3vq1"]
@@ -435,21 +344,19 @@ tracks/6/keys = {
 _data = {
 "Attacked": SubResource("Animation_gtj53"),
 "Death": SubResource("Animation_fqrga"),
-"Deathed": SubResource("Animation_olwi0"),
 "Idle": SubResource("Animation_o3vq1"),
 "RESET": SubResource("Animation_tuwgr")
 }
 
-[node name="Tree" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcmhh"]
+size = Vector2(8, 4)
+
+[node name="Tree" type="Node2D"]
 y_sort_enabled = true
-collision_layer = 32
-collision_mask = 2
 script = ExtResource("3_3dw32")
 node_types = Array[Resource("res://Items/Resources/Type/ResourceNodeType.gd")]([ExtResource("2_srt3n")])
+starting_resource = 5
 pickup_type = ExtResource("3_gjhma")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_fcmhh")
 
 [node name="Hutbox" parent="." instance=ExtResource("3_80pf7")]
 collision_layer = 32
@@ -469,7 +376,9 @@ offset = Vector2(0, -16)
 hframes = 12
 vframes = 5
 
-[connection signal="hurt" from="Hutbox" to="." method="_on_hutbox_hurt"]
-[connection signal="hurt_exit" from="Hutbox" to="." method="_on_hutbox_hurt_exit"]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_fcmhh")
 
 [editable path="Hutbox"]

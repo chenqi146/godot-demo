@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://4tj11kulgkq6"]
+
+[ext_resource type="Script" path="res://Objects/Rock.gd" id="1_0r6fo"]
+[ext_resource type="Resource" uid="uid://i11dgqii667j" path="res://Items/Resources/Type/Minable.tres" id="2_1c0ys"]
+[ext_resource type="PackedScene" uid="uid://chccutne6sqd" path="res://Items/Pickups/PickupRock.tscn" id="3_w61bi"]
+[ext_resource type="PackedScene" uid="uid://daagnusnhoagq" path="res://Boxes/Hurtbox.tscn" id="4_6ljmh"]
+[ext_resource type="Texture2D" uid="uid://cg8fx13ogyhec" path="res://Asset/Objects/Mushrooms, Flowers, Stones.png" id="5_1vhds"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31d3a"]
+radius = 9.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhkmk"]
+radius = 3.0
+height = 16.0
+
+[node name="Node" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_0r6fo")
+node_types = Array[Resource("res://Items/Resources/Type/ResourceNodeType.gd")]([ExtResource("2_1c0ys")])
+starting_resource = 5
+pickup_type = ExtResource("3_w61bi")
+
+[node name="Hutbox" parent="." instance=ExtResource("4_6ljmh")]
+collision_layer = 32
+
+[node name="CollisionShape2D" parent="Hutbox" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_31d3a")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("5_1vhds")
+offset = Vector2(0, -10)
+region_enabled = true
+region_rect = Rect2(96, 16, 32, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bhkmk")
+
+[editable path="Hutbox"]
